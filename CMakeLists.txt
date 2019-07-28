@@ -6,7 +6,7 @@ add_executable(SimpleMulticastChat SimpleMulticastChat.cpp)
 if (${UNIX})
     # *nix-specific includes or actions
     message("Linux stuff")
-
+    target_link_libraries(SimpleMulticastChat pthread)
 elseif (${WIN32})
   # Windows-specific includes or actions
   message("Windows stuff")
@@ -15,5 +15,3 @@ elseif (${APPLE})
 endif (${UNIX})
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT SimpleMulticastChat)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/)
-set(EXECUTABLE_OUTPUT_PATH "bin")
